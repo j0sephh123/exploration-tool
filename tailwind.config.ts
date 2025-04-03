@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import typography from "@tailwindcss/typography";
 
 const config: Config = {
   content: [
@@ -13,7 +12,7 @@ const config: Config = {
       // Temporarily remove custom typography settings to test defaults
     },
   },
-  plugins: [typography],
+  plugins: [],
 };
 
 export default config;

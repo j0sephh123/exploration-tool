@@ -1,6 +1,7 @@
 import { useState, useRef, MouseEvent } from "react";
 import ReactMarkdown from "react-markdown";
 import { Node } from "../types";
+import remarkGfm from "remark-gfm";
 
 interface NodeDisplayProps {
   node: Node;
@@ -62,8 +63,13 @@ export default function NodeDisplay({
         onPaste={handlePaste}
         tabIndex={0}
       >
+        
         {node.content ? (
-          <ReactMarkdown>{node.content}</ReactMarkdown>
+          <div className="prose max-w-none dark:prose-invert">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {node.content}
+            </ReactMarkdown>
+          </div>
         ) : (
           <div className="empty-content">Paste content here...</div>
         )}
